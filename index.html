@@ -1,149 +1,170 @@
 ---
-layout: null
-title: Home
+layout: default
+title: WahlSpace Home
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WahlSpace</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
   <style>
-    * {
+    /* Global Styles */
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-y: auto;
-      background-color: #0d0d1a;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      line-height: 1.6;
     }
 
-    body {
-      background: radial-gradient(ellipse at center, #0d0d1a 0%, #000000 100%);
+    /* Header and Navigation */
+    header {
+      background-color: #34495e;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    nav {
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      color: #ffffff;
+    }
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px 15px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #e74c3c;
+    }
+
+    /* Sections */
+    section {
+      padding: 120px 20px 60px;
+      min-height: 100vh;
+    }
+    section:nth-of-type(odd) {
+      background-color: #2c3e50;
+    }
+    section:nth-of-type(even) {
+      background-color: #1a252f;
+    }
+
+    /* Headings */
+    h1, h2 {
+      color: #e74c3c;
       text-align: center;
-      padding: 1.5rem;
+      margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      color: #ff4fa3;
-      text-shadow: 0 0 15px #ff4fa3, 0 0 30px #ff87c0;
-      opacity: 0;
-      animation: fadeInOut 6s ease-in-out forwards;
+    /* Container for content */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(-50px) scale(0.9); }
-      20% { opacity: 1; transform: translateY(0) scale(1); }
-      60% { opacity: 1; transform: translateY(0) scale(1); }
-      100% { opacity: 0; transform: translateY(60px) scale(0.7); }
+    /* Simple Button Styling */
+    .btn {
+      display: inline-block;
+      background-color: #e74c3c;
+      color: #ecf0f1;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #c0392b;
     }
 
-    p {
-      font-size: 1.4rem;
-      max-width: 640px;
-      color: #d1f7ff;
-      opacity: 0;
-      animation: textAppear 2s 5s forwards;
-    }
-
-    @keyframes textAppear {
-      to { opacity: 1; }
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-
-    .content {
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #34495e;
       position: relative;
-      z-index: 1;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
 <body>
   
-  <div class="content">
-    <h1>Welcome to WahlSpace</h1>
-    <p>Exploring creativity, code, and expression.</p>
-  </div>
-
-  <div id="main-content" style="opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; position: relative; z-index: 1; text-align: center; color: #fff; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-    <nav style="margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-      <a href="#about" style="color: #12fff7; text-decoration: none; font-weight: bold;">About</a>
-      <a href="#blog" style="color: #12fff7; text-decoration: none; font-weight: bold;">Blog</a>
-      <a href="#projects-hobbies" style="color: #12fff7; text-decoration: none; font-weight: bold;">Projects</a>
-      <a href="#contact" style="color: #12fff7; text-decoration: none; font-weight: bold;">Contact</a>
+  <!-- Navigation Header -->
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+      <a href="#projects-hobbies">Projects &amp; Hobbies</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <h2 style="margin-top: 2rem; font-size: 2rem; color: #ff87c0;">Let’s explore together</h2>
-    <p style="max-width: 600px; margin: 1rem auto; font-size: 1.1rem;">Here you’ll find my thoughts, projects, hobbies, and skills as I grow in tech and creativity.</p>
-    <section id="about" class="reveal" style="background: #1a1a2e; padding: 2rem; border-radius: 8px; margin-top: 2rem; max-width: 700px; box-shadow: 0 0 10px rgba(255, 135, 192, 0.2);">
-  <h3 style="color: #ff87c0; font-size: 1.8rem; margin-bottom: 1rem;">About Me</h3>
-  <p style="font-size: 1rem; color: #d1f7ff;">
-    I'm Felicia, a creative technologist exploring data, design, and digital storytelling. Welcome to my personal and professional corner of the web.
-  </p>
-</section>
-
-    <section id="blog" class="reveal" style="background: #1a1a2e; padding: 2rem; border-radius: 8px; margin-top: 2rem; max-width: 700px; box-shadow: 0 0 10px rgba(255, 135, 192, 0.2);">
-  <h3 style="color: #ff87c0; font-size: 1.8rem; margin-bottom: 1rem;">Blog</h3>
-  <p style="font-size: 1rem; color: #d1f7ff;">
-    A space where I share thoughts, lessons, and insights from my journey in tech, creativity, and learning.
-  </p>
-</section>
-
-    <section id="contact" class="reveal" style="background: #1a1a2e; padding: 2rem; border-radius: 8px; margin-top: 2rem; max-width: 700px; box-shadow: 0 0 10px rgba(255, 135, 192, 0.2);">
-  <h3 style="color: #ff87c0; font-size: 1.8rem; margin-bottom: 1rem;">Contact</h3>
-  <p style="font-size: 1rem; color: #d1f7ff;">
-    Want to connect? Reach out via email or follow me on social media. Links coming soon!
-  </p>
-</section>
-    <section id="projects-hobbies" class="reveal" style="background: #1a1a2e; padding: 2rem; border-radius: 8px; margin-top: 2rem; max-width: 700px; box-shadow: 0 0 10px rgba(255, 135, 192, 0.2);">
-  <h3 style="color: #ff87c0; font-size: 1.8rem; margin-bottom: 1rem;">Projects & Hobbies</h3>
-  <p style="font-size: 1rem; color: #d1f7ff;">
-    A growing collection of what I'm learning and building — from tech tools and personal projects to creative hobbies like baking and crafting.
-  </p>
-</section>
-  </div>
-
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h1>About</h1>
+        <p>Welcome to WahlSpace! This site is your go-to hub where I share my ideas, projects, and passions. Here you can find insights about my journey, experiences, and the work I’m truly passionate about.</p>
+      </div>
+    </section>
+  
+    <!-- Blog Section -->
+    <section id="blog">
+      <div class="container">
+        <h1>Blog</h1>
+        <p>Stay tuned as I publish articles and tutorials on various topics such as technology, design, and programming. My blog is designed to inspire and educate, keeping you updated with the latest trends and ideas.</p>
+      </div>
+    </section>
+  
+    <!-- Projects & Hobbies Section -->
+    <section id="projects-hobbies">
+      <div class="container">
+        <h1>Projects &amp; Hobbies</h1>
+        <p>Discover my portfolio of work alongside my personal projects and hobbies. From innovative coding experiments to creative side projects, this section reflects my passion for continuous learning and exploration.</p>
+      </div>
+    </section>
+  
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h1>Contact</h1>
+        <p>If you'd like to connect, collaborate, or simply drop a message, please feel free to reach out. I’m always excited to connect with like-minded individuals and professionals!</p>
+        <a href="mailto:your.email@example.com" class="btn">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 WahlSpace. All rights reserved.</p>
+  </footer>
+  
   <script>
-    // Fade in main content after intro animation
-    setTimeout(() => {
-      const mainContent = document.getElementById('main-content');
-      mainContent.style.opacity = '1';
-      mainContent.style.transform = 'translateY(0)';
-    }, 3000); // Wait for h1 and p to finish animations
-  </script>
-
-
-    
-      const revealSections = document.querySelectorAll('.reveal');
-    let delay = 3000;
-    revealSections.forEach((section, index) => {
-      setTimeout(() => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 1s ease, transform 1s ease';
-        section.style.display = 'block';
-        requestAnimationFrame(() => {
-          section.style.opacity = '1';
-          section.style.transform = 'translateY(0)';
-        });
-      }, delay + index * 600);
+    // JavaScript for smooth scrolling navigation
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
     });
-
   </script>
 </body>
 </html>
